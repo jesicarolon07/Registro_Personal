@@ -1,0 +1,84 @@
+#include<iostream>
+
+using namespace std;
+
+class Persona {
+protected:
+    char nombre[40];
+    int edad;
+    int id [5];
+    char puesto[5][40];
+public:
+    Persona();
+   
+    void registrar();
+    void mostrar();
+    ~Persona();
+};
+Persona::Persona()
+{
+ for(int f=0;f < 2;f++) 
+    {
+        cout <<"Ingrese PUESTO:";
+        cin.getline(puesto[f],40);
+        cout <<"Ingrese id:";
+        cin >>id[f];
+        cin.get();
+    }
+}
+
+
+class Empleado : public Persona {
+private:
+    float sueldo;
+public:
+    void cargarSueldo();
+    void mostrar_sueldo();
+};
+
+
+void Persona::registrar()
+{
+    cout<<"Registrar"<<endl;
+    cout << "Ingrese nombre:";
+    cin.getline(nombre, 40);
+    cout << "Ingrese edad:";
+    cin >> edad;
+    cin.get();
+}
+
+void Persona::mostrar()
+{
+    cout << "Nombre:"<<nombre<<endl;
+    cout << "Edad:" << edad << endl;
+    cout <<puesto[0] <<" - " <<id[0] <<"\n";
+  
+}
+
+
+void Empleado::cargarSueldo()
+{
+    cout << "Ingrese sueldo:";
+    cin >> sueldo;
+}
+
+void Empleado::mostrar_sueldo()
+{
+    cout << "Sueldo:" << sueldo <<endl;
+}
+
+Persona::~Persona()
+{
+  cout << "Gracias por utilizar este programa.";
+    cin.get();
+    cin.get();
+}
+int main()
+{
+    Persona persona1;
+    persona1.registrar();
+    persona1.mostrar();
+    Empleado empleado1;
+    empleado1.cargarSueldo();
+    return 0;
+}
