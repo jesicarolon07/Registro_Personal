@@ -1,0 +1,59 @@
+
+#include <cstring>
+#include <iostream>
+using namespace std; 
+class Persona {
+ public:
+ char nombre[50];
+ char telefono[15];
+ Persona();
+ void EntradaDatos (void);
+ void SalidaDatos (void);
+};
+class Empleado : public Persona {
+	int sueldo;
+	public:
+	Empleado();
+	void EntradaDatos (void);
+    void SalidaDatos (void);
+};
+int main() {
+ Persona registro1;
+ Empleado registro2;
+ registro1.EntradaDatos();
+ registro2.EntradaDatos();
+ registro1.SalidaDatos();
+ registro2.SalidaDatos();
+ return 0;
+}
+
+Persona::Persona() {
+ strcpy(nombre, "");
+ strcpy(telefono, "");
+}
+void Persona::EntradaDatos (void) {
+ cout << "\nNombre: ";
+ cin >> nombre;
+ cout << "Tel�fono: ";
+ cin >> telefono;
+}
+void Persona::SalidaDatos (void) {
+ cout << "\n\nNombre:\t\t" << nombre << "\n";
+ cout << "Tel�fono:\t" << telefono << "\n";
+} 
+Empleado::Empleado(){
+ sueldo=0;
+}
+void Empleado::EntradaDatos (void) {
+ cout << "\nNombre: ";
+ cin >> nombre;
+ cout << "Tel�fono: ";
+ cin >> telefono;
+ cout << "\nSueldo: ";
+ cin >> sueldo;
+ }
+void Empleado::SalidaDatos (void) {
+ cout << "\n\nNombre:\t\t" << nombre << "\n";
+ cout << "Tel�fono:\t" << telefono << "\n";
+ cout << "\n\nSueldo:\t\t" << sueldo << "\n";
+}
